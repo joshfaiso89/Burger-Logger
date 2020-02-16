@@ -5,7 +5,7 @@ let connection = require('../config/connection.js');
 function printQuestionMarks(num) {
     let arr = [];
 
-    for (i = 0, i < num, i++) {
+    for (i = 0; i < num; i++) {
         arr.push("?");
     }
     return arr.toString();
@@ -30,16 +30,17 @@ function objToSql(ob) {
 //object for all SQL statement functions
 let orm = {
     all: function(tableInput, cb) {
-        let queryString = "SELECT * FROM" + tableInput + ";";
-        connection.query(queryString, function(err, result) {
+        let queryString = " SELECT * FROM " + tableInput + ";";
+    let statement =     connection.query(queryString, function(err, result) {
             if(err){
                 throw err;
             }
             cb(result);
         });
+        console.log(statement.sql)
     },
     create: function(table, cols, vals, cb) {
-        let queryString = "INSERT INTO" + table;
+        let queryString = " INSERT INTO " + table;
 
         queryString += " (";
         queryString += cols.toString();
@@ -60,23 +61,23 @@ let orm = {
     },
     //objColVals example {name: panther, sleepy: true}
     update: function(table, objColVals, condition, cb) {
-        let queryString = "UPDATE" + table;
+        let queryString = " UPDATE " + table;
 
-        queryString += "SET";
+        queryString += " SET ";
         queryString += objToSql(objColVals);
-        queryString += "WHERE";
+        queryString += " WHERE ";
         queryString += condition;
        
         console.log(queryString);
         connection.query(queryString, function(err, result) {
             if (err) {
-                throw err.;
+                throw err;
             }
             cb(result);
         });
     },
     delete: function(table, condition, cb) {
-        let queryString = "DELETE FROM " + table;
+        let queryString = " DELETE FROM " + table;
     queryString += " WHERE ";
     queryString += condition;
 

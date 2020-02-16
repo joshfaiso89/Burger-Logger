@@ -22,5 +22,5 @@ app.use(routes);
 
 //Start the server so it can handle client requests.
 app.listen(PORT, () => {
-    console.log('Server listening on: local host' + PORT);
+    console.log('Server listening on: http://localhost:' + PORT);
 });
