@@ -1,38 +1,38 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-           {{#each  burger }}
-                   
-                   {{#unless devoured}}
-           <div>    
-               {{burger_name}}
-              <button id="devouredBtn"  data-id="{{id}}">
-                  Devoured 
-              </button>
-           </div>
-           {{/unless}}
-          {{/each}}
+            {{#each  burger }}
+
+            {{#unless devoured}}
+            <div>
+                {{burger_name}}
+                <button id="devouredBtn" data-id="{{id}}">
+                    Devoured
+                </button>
+            </div>
+            {{/unless}}
+            {{/each}}
         </div>
         <div class="col-sm-4">
             <div class="div">
- <h1>Burger Logger</h1>
-            <img src="/assets/img/bigMac.png" class= "burger" alt="No Image">
+                <h1 id="title">Burger Logger</h1>
+                <img src="/assets/img/bigMac.png" class="burger" alt="No Image">
             </div>
             <br>
-           <div>
-               <input type="text" id="burgerName">
-               <button id="addBurger">Enter Burger</button>
-           </div>
+            <div class="burgerButton">
+                <input type="text" id="burgerName">
+                <button id="addBurger">Enter Burger</button>
+            </div>
         </div>
         <div class="col-sm-4">
-            
-               {{#each burger}}
-                {{#if  devoured}}
-                Devoured:{{burger_name}}
 
-                {{/if}}
+            {{#each burger}}
+            {{#if  devoured}}
+            Devoured:{{burger_name}}
 
-               {{/each}}
+            {{/if}}
+
+            {{/each}}
 
         </div>
     </div>

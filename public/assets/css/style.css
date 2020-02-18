@@ -1,3 +1,31 @@
 .burger{
     width: 100%;
 }
+
+body{
+    background-color: red;
+}
+
+.h1{
+    color: gold;
+}
+
+.container{
+    color: gold
+}
+
+.div{
+    align-items: center;
+}
+
+.burgerButton{
+    margin: 10px;
+}
+
+#addBurger{
+    margin-left: 30px;
+}
+
+#title{
+    margin-left: 40px;
+}
