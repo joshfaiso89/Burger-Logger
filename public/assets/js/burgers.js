@@ -51,13 +51,14 @@ let id = $(this).attr('data-id')
     })
 })
 
-$('#deleteBurger').on('click', (event) => {
+$('.deleteBurger').on('click', function(event) {
     event.preventDefault();
-
+    console.log('deleteHit')
     let newBurger = {
         devoured: 1
     }
     let id = $(this).attr('data-id')
+    console.log(id);
     $.ajax('/api/burgers/' + id, {
         type: "DELETE",
         data: newBurger
