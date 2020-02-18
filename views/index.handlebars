@@ -24,11 +24,15 @@
                 <button id="addBurger">Enter Burger</button>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" id="deleteBurger">
 
             {{#each burger}}
             {{#if  devoured}}
-            Devoured:{{burger_name}}
+            <div>
+                Devoured:{{burger_name}}
+                <button data-id="{{id}}">Delete</button>
+
+            </div>
 
             {{/if}}
 

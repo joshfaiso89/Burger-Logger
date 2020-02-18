@@ -33,4 +33,16 @@ router.put('/api/burgers/:id', function(req, res) {
     })
 })
 
+router.delete('/api/burgers/:id', function(req, res) {
+    let condition = ' id = ' + req.params.id;
+    burger.update(condition, (data) =>{
+        console.log(data);
+        if(data.affectedRows === 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    })
+})
+
 module.exports = router;

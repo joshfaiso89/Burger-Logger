@@ -29,17 +29,17 @@ function objToSql(ob) {
 
 //object for all SQL statement functions
 let orm = {
-    all: function(tableInput, cb) {
+    all: function (tableInput, cb) {
         let queryString = " SELECT * FROM " + tableInput + ";";
-    let statement =     connection.query(queryString, function(err, result) {
-            if(err){
+        let statement = connection.query(queryString, function (err, result) {
+            if (err) {
                 throw err;
             }
             cb(result);
         });
         console.log(statement.sql)
     },
-    create: function(table, cols, vals, cb) {
+    create: function (table, cols, vals, cb) {
         let queryString = " INSERT INTO " + table;
 
         queryString += " (";
@@ -51,7 +51,7 @@ let orm = {
 
         console.log(queryString);
 
-        connection.query(queryString, vals, function(err, result) {
+        connection.query(queryString, vals, function (err, result) {
             if (err) {
                 throw err;
             }
@@ -60,35 +60,35 @@ let orm = {
         });
     },
     //objColVals example {name: panther, sleepy: true}
-    update: function(table, objColVals, condition, cb) {
+    update: function (table, objColVals, condition, cb) {
         let queryString = " UPDATE " + table;
 
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
-       
+
         console.log(queryString);
-        connection.query(queryString, function(err, result) {
+        connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
             cb(result);
         });
     },
-    delete: function(table, condition, cb) {
+    delete: function (table, condition, cb) {
         let queryString = " DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
+        queryString += " WHERE ";
+        queryString += condition;
 
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
 
-      cb(result);
-    });
-  }
+            cb(result);
+        });
+    }
 };
 
 //Export orm obj for the model(burger.js)

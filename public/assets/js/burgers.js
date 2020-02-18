@@ -25,7 +25,7 @@ $('#addBurger').on('click', function(event) {
     let newBurger = {
         burger_name: $('#burgerName').val().trim()
     };
-alert('testing')
+//alert('testing')
     //Send POST request
     $.ajax('/api/burgers', {
         type: "POST",
@@ -47,6 +47,22 @@ let id = $(this).attr('data-id')
         type: "PUT",
         data: newBurger
     }).then(function(data){
+        location.reload();
+    })
+})
+
+$('#deleteBurger').on('click', (event) => {
+    event.preventDefault();
+
+    let newBurger = {
+        devoured: 1
+    }
+    let id = $(this).attr('data-id')
+    $.ajax('/api/burgers/' + id, {
+        type: "DELETE",
+        data: newBurger
+    }).then((data) => {
+        console.log(data);
         location.reload();
     })
 })
