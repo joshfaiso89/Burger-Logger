@@ -2,9 +2,8 @@
     <div class="row">
         <div class="col-sm-4">
             {{#each  burger}}
-
             {{#unless devoured}}
-            <div>
+            <div class="devColumn">
                 {{burger_name}}
                 <button id="devouredBtn" data-id="{{id}}">
                     Devoured

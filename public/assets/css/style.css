@@ -29,3 +29,15 @@ body{
 #title{
     margin-left: 40px;
 }
+
+.devColumn {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.deleteBurger{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
